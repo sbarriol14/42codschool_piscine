@@ -1,0 +1,16 @@
+I'll try to give you some hints so you can solve your HW yourself.
+
+Follow this steps:
+
+read the manual of file by executing man file.
+Then try it out by file somefile and see what happens
+Try to run file on different file types
+By now you should be able to understand how to find out if some file is a jpeg image or not.
+now read the manual for find (or use google to find out how to use it to find all files in some directory and all subdirectories)
+now find out how to use -exec option of find in order to connect it with previously used file command
+Now you should be able to find out the filetypes of all files in needed directory and list them
+Now read about pipes | and grep command to find out how to filter only for JPEG files.
+
+
+find / -exec file {} \; | grep "JFIF"
+
