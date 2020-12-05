@@ -143,6 +143,22 @@ void    fill_3(int map[4][4], int *parameters)
                 }
             }
         }
+        y = 0;
+        while (y < 3)
+        {
+            x = 0;
+            while (x < 3)
+            {
+                if ((x == 0) && parameters[y+8] == 3)
+                    temp[x][y] = -1;
+                if ((x == 3) && parameters[y+12] == 3)
+                    temp[x][y] = -1;
+                if ((y == 0) && parameters[x] == 3)
+                    temp[x][y] = -1;
+                if ((y == 3) && parameters[x+4] == 3)
+                    temp[x][y] = -1;
+            }
+        }
     }
     else
         fill_last(map, 3);
