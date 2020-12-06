@@ -315,6 +315,87 @@ void    fill_3(int map[4][4], int *parameters)
         fill_last(map, 3);
 }
 
+void fill_34(int map[4][4], int *parameters)
+{
+	int x;
+	int y;
+
+	y = 0;
+	        while (y < 4)
+	        {
+	            x = 0;
+	            while (x < 4)
+	            {
+	                if(map[x][y] == 4)
+	                {
+	                    if((x == 0 && (parameters[y+12] == 3))&& (map[x+1][y] == 3))
+	                    {
+	                        map[x+2][y] = 2;
+	                    }
+	                    if((x == 3 && (parameters[y+8] == 3))&& (map[x-1][y] == 3))
+	                    {
+	                        map[x-2][y] = 2;
+	                    }
+	                    if( (y == 0 && (parameters[x+4] == 3))&& (map[x][y+1] == 3))
+	                    {
+	                        map[x][y + 2] = 2;
+	                    }
+	                    if(( y == 3 && (parameters[x] == 3)) && (map[x][y-1] == 3))
+	                    {
+	                        map[x][y - 2] = 2;
+	                    }
+	                }
+	                x++;
+	            }
+	            y++;
+	        }
+		}
+
+void	fill_lastof_row(int map[4][4])
+{
+	int y;
+	int suma;
+	int x;
+
+	y = 0;
+	while ( y < 4)
+	{
+		x = 0;
+		while (x < 4)
+		{
+			suma = map[x][0] + map[x][1] + map[x][2] + map[x][3];
+			if (suma > 7 && map[x][y] == 0)
+				map[x][y] = 11 - suma;
+			x++;
+		}
+
+		y++;
+	}
+}
+
+void	fill_lastof_row(int map[4][4])
+{
+	int y;
+	int suma;
+	int x;
+
+	y = 0;
+	while ( y < 4)
+	{
+		x = 0;
+		while (x < 4)
+		{
+			suma = map[0][y] + map[1][y] + map[2][y] + map[3][y];
+			if (suma > 7 && map[x][y] == 0)
+				map[x][y] = 11 - suma;
+			x++;
+		}
+
+		y++;
+	}
+}
+
+//funcion para rellenar 1 y 2
 void	fill_2y1(int map[4][4], int *parameters)
 {
 	int c1;
@@ -324,9 +405,10 @@ void	fill_2y1(int map[4][4], int *parameters)
 	c2 = count_ns(map, 2);
 	if (!((c1 == 4) && (c2 == 4)))
 	{
-		fill_34-3();
+		fill_34();
 		fill_lastof_row();
 		fill_lastof_col();
+		fill_2y1(map, parameters);
 	}
 }
 
