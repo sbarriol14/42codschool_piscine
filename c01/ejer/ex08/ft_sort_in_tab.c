@@ -32,7 +32,7 @@ void	ft_sort_int_tab(int *tab, int size)
 	{
 		while (i < size)
 		{
-			if (tab2[i])
+			if (tab2[i] < min)
 				min = tab2[i];
 			i++;
 		}
