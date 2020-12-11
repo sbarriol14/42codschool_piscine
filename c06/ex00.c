@@ -16,6 +16,6 @@ int		main(int argc, char **argv)
 {
 	char *name;
 
-	name = argv[1];
+	name = argv[0];
 	ft_putstr(name);
 }
