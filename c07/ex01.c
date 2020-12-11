@@ -12,14 +12,14 @@ int *ft_range(int min, int max)
 	else
 	{
 		r = max - min;
-			temp = (char)malloc(sizeof(max) * r);
-			i = 0;
-			while (min < max)
-			{
-				temp[i] = min;
-				min++;
-				i++;
-			}
-			return(temp);
+		temp = (int)malloc(sizeof(int) * r);
+		i = 0;
+		while (min < max)
+		{
+			temp[i] = min;
+			min++;
+			i++;
+		}
+		return(temp);
 	}
 }
