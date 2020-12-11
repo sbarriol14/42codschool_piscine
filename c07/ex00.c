@@ -4,10 +4,10 @@
 char	*ft_strdup(char *src)
 {
 	char *temp;
-
-	temp = (char)malloc(sizeof(src));
+	//añadir strlen
+	temp = (char)malloc(sizeof(char) * size);
 	temp = src;
-	/*
+	/* añadir
 	 * int i = 0;
 	 * while (src[i] != '\0')
 	 * {
