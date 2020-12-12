@@ -13,10 +13,21 @@ int 	ft_strlen(char *str)
 
 int		ft_str_is_numeric(char str)
 {
-	if ( !((str <= '9')  && (str >= '0')))
+	if (!((str <= '9')  && (str >= '0')))
 		return (0);
 	return (1);
 }
+
+int		ft_str_is_alpha(char str)
+{
+	if (!((str >= 'A') && (str <= 'Z')))
+	{
+		if (!((str >= 'a') && (str <= 'z')))
+			return (0);
+	}
+	return (1);
+}
+
 
 /*
 int		ft_str_is_numeric(char *str)
@@ -52,8 +63,10 @@ int		ft_atoi(char *str)
 	j = 0;
 	while(i < size && (ft_str_is_numeric(str[i]) == 0))
 	{
-		if (str[i])
-		//incluir aqui para que si encuentra lettras pare
+		if (ft_str_is_alpha(str[i]) == 1)
+			return (0);
+		if (str[i] != ' ' || str[i] != '+' || str[i] != '-' || str[i] != '\t' || str[i] == '\n' || str[i] == '\v' || str[i] != '\f' || str[i] != '\r')
+			return (0);
 		if(str[i] == '-')
 			s = -s;
 		i++;
