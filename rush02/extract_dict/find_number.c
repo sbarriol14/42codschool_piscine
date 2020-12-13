@@ -7,7 +7,7 @@
 //añadir ft_strlen()  y ft_strcmp o strncmp
 
 
-char	*return_name(int i, char *dict)
+char	*get_name(int i, char *dict)
 {
 	int sizename;
 	char *name;
@@ -44,7 +44,7 @@ char *find_number(char *dict, char *to_find)
     	{
     		if(to_find[i + 1] == '\0' && (ft_char_is_numeric(dict[j +1]) == 0))
     		{
-    			name = return_name(i, dict);
+    			name = get_name(i, dict);
     		}
     		i++;
     	}
