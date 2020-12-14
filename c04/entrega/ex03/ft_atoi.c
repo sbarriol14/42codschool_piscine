@@ -6,7 +6,7 @@
 /*   By: sbarrio- <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/14 17:42:41 by sbarrio-          #+#    #+#             */
-/*   Updated: 2020/12/14 18:26:38 by sbarrio-         ###   ########.fr       */
+/*   Updated: 2020/12/14 20:15:12 by sbarrio-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,6 +55,7 @@ int		ft_atoi(char *str)
 	int p;
 	int size;
 	int num;
+	int i;
 
 	size = ft_strlen(str);
 	s = 1;
@@ -69,10 +70,11 @@ int		ft_atoi(char *str)
 	}
 	num = 0;
 	p = 1;
-	while (i++ < size && (ft_char_is_numeric(str[i]) == 1))
+	while (i < size && (ft_char_is_numeric(str[i]) == 1))
 	{
 		num = num * p + (int)(str[i] - '0');
 		p = 10;
+		i++;
 	}
 	return (s * num);
 }

@@ -1,30 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstr.c                                        :+:      :+:    :+:   */
+/*   main01.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sbarrio- <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: dagarcia <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/12/14 17:35:48 by sbarrio-          #+#    #+#             */
-/*   Updated: 2020/12/14 17:36:28 by sbarrio-         ###   ########.fr       */
+/*   Created: 2020/12/04 12:47:39 by dagarcia          #+#    #+#             */
+/*   Updated: 2020/12/04 12:58:12 by dagarcia         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
+#include <stdio.h>
 
-void	ft_putchar(char c)
+int		ft_strncmp(char *s1, char *s2, unsigned int n);
+
+int		main(void)
 {
-	write(1, &c, 1);
-}
+	char *s1;
+	char *s2;
+	int a;
+	unsigned int n;
 
-void	ft_putstr(char *str)
-{
-	int i;
-
-	i = 0;
-	while (str[i] != '\0')
-	{
-		ft_putchar(str[i]);
-		i++;
-	}
+	n = 5;
+	s1 = "zZzzzzzzzz";
+	s2 = "zzzzzzzzZ";
+	a = ft_strncmp(s1, s2, n);
+	printf("%i", a);
+	return (0);
 }
