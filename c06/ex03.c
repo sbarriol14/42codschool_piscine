@@ -1,32 +1,61 @@
 
-#include <unistd.h>
+#include <stdlib.h>
 
-void	ft_putstr(char *str)
+int		ft_strlen(char *str)
 {
 	int i;
 
 	i = 0;
 	while (str[i] != '\0')
 	{
-		write(1, str[i], 1);
 		i++;
 	}
+	return (i);
 }
 
-int		main(int argc, char **argv)
+char	*ft_strcat(char *dest, char *src)
+{
+	int		i;
+	int		j;
+	int		sizesrc;
+	int		sizedest;
+
+	sizedest = ft_strlen(dest);
+	sizesrc = ft_strlen(src);
+	i = 0;
+	j = sizedest;
+	while ((i < sizesrc))
+	{
+		dest[j] = src[i];
+		i++;
+		j++;
+	}
+	dest[sizedest + sizesrc] = '\0';
+	return (dest);
+}
+
+char	*ft_strjoin(int size, char **strs, char *sep)
 {
 	int i;
-	int j;
-	char **sort;
+	char *cat;
+	cat = (char**)malloc(sizeof(char*) * size);
 
-
-	i = 0;
-	j = 0;
-	while (i < argc)
+	if (size <= 0)
 	{
-		if ()
-
-		i--;
+		free(cat);
+		return (cat);
 	}
-	write (1, '\n', 1);
+	else
+	{
+		cat = strs[0];
+		i = 1;
+		while (i < size)
+		{
+
+			cat = ft_strcat(cat, sep);
+			cat = ft_strcat(cat, strs[i]);
+			i++;
+		}
+		return(cat);
+	}
 }
