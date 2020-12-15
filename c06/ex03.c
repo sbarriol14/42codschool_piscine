@@ -1,61 +1,63 @@
 
-#include <stdlib.h>
+#include <unistd.h>
 
-int		ft_strlen(char *str)
+void	ft_putstr(char *str)
 {
 	int i;
 
 	i = 0;
 	while (str[i] != '\0')
 	{
+		write(1, str[i], 1);
 		i++;
 	}
-	return (i);
 }
 
-char	*ft_strcat(char *dest, char *src)
-{
-	int		i;
-	int		j;
-	int		sizesrc;
-	int		sizedest;
 
-	sizedest = ft_strlen(dest);
-	sizesrc = ft_strlen(src);
-	i = 0;
-	j = sizedest;
-	while ((i < sizesrc))
-	{
-		dest[j] = src[i];
-		i++;
-		j++;
-	}
-	dest[sizedest + sizesrc] = '\0';
-	return (dest);
-}
-
-char	*ft_strjoin(int size, char **strs, char *sep)
+int		ft_strcmp(char *s1, char *s2)
 {
 	int i;
-	char *cat;
-	cat = (char**)malloc(sizeof(char*) * size);
+	int r;
 
-	if (size <= 0)
+	i = 0;
+	while (s1[i] || s2[i])
 	{
-		free(cat);
-		return (cat);
-	}
-	else
-	{
-		cat = strs[0];
-		i = 1;
-		while (i < size)
+		if (s1[i] != s2[i])
 		{
-
-			cat = ft_strcat(cat, sep);
-			cat = ft_strcat(cat, strs[i]);
-			i++;
+			r = s1[i] - s2[i];
+			return (r);
 		}
-		return(cat);
+		i++;
 	}
+	return (0);
+}
+
+void	ft_swap(int *a, int *b)
+{
+	int x;
+
+	x = *b;
+	*b = *a;
+	*a = x;
+}
+
+int		main(int argc, char **argv)
+{
+	int i;
+
+
+	i = 1;
+	while (i < argc - 1)
+	{
+		if (argv[i] > argv[i + 1])
+			ft_swap(argv[i], argv[i + 1]);
+		i++;
+	}
+	i = 1;
+	while (i < argc)
+	{
+		ft_putstr(argv[i]);
+		i++;
+	}
+	write (1, '\n', 1);
 }
